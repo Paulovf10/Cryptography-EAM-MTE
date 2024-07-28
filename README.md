@@ -1,90 +1,27 @@
-# File Transfer Project
 
-This project demonstrates a simple file transfer system using sockets in C.
+# Cryptography EAM MTE
 
-## Prerequisites
+Este projeto contém implementações de criptografia para os métodos EAM (Encrypt-and-MAC) e MTE (MAC-then-Encrypt).
 
-- GCC Compiler
-- Unix-like Operating System
+## Estrutura do Projeto
 
-## Project Structure
+- `src/`: Contém os módulos principais `base_crypto.py`, `eam.py` e `mte.py`.
+- `tests/`: Contém os testes unitários para os módulos.
 
-```
-file-transfer
-├── LICENSE
-├── README.md
-├── bin
-│   ├── cliente       # Client executable
-│   └── servidor      # Server executable
-├── data
-│   ├── output.txt    # Output file received by the client
-│   ├── teste1.txt    # Test file 1
-│   ├── teste2.txt    # Test file 2
-│   ├── teste3.txt    # Test file 3
-├── Makefile          # Makefile for building the project
-└── src
-    ├── cliente.c     # Client source code
-    ├── servidor.c    # Server source code
+## Como Usar
+
+### Instalar Dependências
+
+```sh
+pip install -r requirements.txt
 ```
 
-## Compilation
+### Executar Testes
 
-This project uses a Makefile to simplify the build process. To compile both the server and client programs, simply run:
-
-```bash
-make
+```sh
+python -m unittest discover tests
 ```
 
-This will generate the `cliente` and `servidor` executables in the `bin` directory.
+## Exemplo de Uso
 
-## Execution
-
-### Step 1: Run the Server
-
-In the project root directory, start the server with the following command:
-
-```bash
-./bin/servidor <port> <buffer_size>
-```
-
-Example:
-
-```bash
-./bin/servidor 8080 4096
-```
-
-### Step 2: Run the Client
-
-In another terminal window, navigate to the project root directory and start the client with the following command:
-
-```bash
-./bin/cliente <server_ip> <server_port> <file_name>
-```
-
-Example:
-
-```bash
-./bin/cliente 127.0.0.1 8080 data/teste1.txt
-```
-
-## Example Usage
-
-### Start the Server
-
-```bash
-./bin/servidor 8080 4096
-```
-
-### Start the Client
-
-```bash
-./bin/cliente 127.0.0.1 8080 data/teste1.txt
-```
-
-The client will send the specified file to the server, which will process the file and save the received data in `data/output.txt`.
-
-## Authors
-
-- Bárbara Pereira Medeiros Dias
-- Pedro Antônio Machado Costa
-- Paulo Victor Fernandes Sousa
+Veja os arquivos `eam.py` e `mte.py` para exemplos de como encriptar e decriptar mensagens usando os métodos EAM e MTE.
